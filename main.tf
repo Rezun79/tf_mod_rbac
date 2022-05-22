@@ -29,7 +29,7 @@ resource "azuread_group" "aad_network_contributor_group" {
 # }
 
 data "azuread_service_principal" "rg_spn" {
-  object_id = local.root_spn_client_id
+  object_id = local.spn_object_id
 }
 resource "azurerm_role_assignment" "rg_spn_owner" {
   scope                = "/subscriptions/${local.subscription_id}/resourceGroups/${local.rg_name}"
